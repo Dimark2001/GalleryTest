@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class WindowController : MonoBehaviour
 {
     public bool IsVisible { get; private set; }
 
     protected CanvasGroup _canvasGroup;
 
-    private void Start()
-    {
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
-
     protected virtual void OnDestroy()
     {
-        Addressables.ReleaseInstance(gameObject);
+        //Addressables.ReleaseInstance(gameObject);
     }
 
+    public void OpenWindow()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>();
+        IsVisible = true; 
+    }
+    
     public void ShowWindow(bool withAnimation = true)
     {
         if (IsVisible) return;
@@ -24,7 +26,7 @@ public class WindowController : MonoBehaviour
         IsVisible = true;
 
         _canvasGroup.alpha = 1;
-        SetInteractable(true);  
+        SetInteractable(true);
     }
 
     public void HideWindow(bool withAnimation = true)

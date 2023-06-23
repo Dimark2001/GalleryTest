@@ -1,24 +1,33 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WindowsManager : SingletonPersistent<WindowsManager>
 {
     [SerializeField] private List<Transform> initWindows;
-    private List<Transform> _createdWindows;
+    
+    private List<WindowController> _createdWindows;
+    private Canvas _canvas;
+    public override void Awake()
+    {
+        base.Awake();
+        _canvas = GetComponent<Canvas>();
+        CreateWindow<MenuWindow>("MenuWindow");
+    }
 
     public T CreateWindow<T>(string windowName) where T : WindowController
     {
-        var createdWindow = SearchForWindow<T>(windowName);
+        var createdWindow = SearchCreatedWindow<T>(windowName);
         
         if (createdWindow == null)
         {
-            Debug.Log("createdWindow == null");
-            return null;
+            Debug.Log("createdWindow");
+            var initWindow = SearchInitWindow<T>(windowName);
+            if(initWindow == null) Debug.LogError("Window not found");
+            createdWindow = Instantiate(initWindow, _canvas.transform);
+            createdWindow.OpenWindow();
+            _createdWindows.Add(createdWindow);
         }
-
-        _createdWindows ??= new List<Transform>();
-        _createdWindows.Add(createdWindow.transform);
-        createdWindow.ShowWindow();
 
         return createdWindow;
     }
@@ -33,21 +42,37 @@ public class WindowsManager : SingletonPersistent<WindowsManager>
             }
         }
     }
-
-    public T SearchForWindow<T>(string windowName) where T : WindowController
+    
+    public T SearchInitWindow<T>(string windowName) where T : WindowController
     {
         T targetWindow = null;
 
-        foreach (var createdWindow in initWindows)
+        foreach (var initWindow in initWindows)
         {
-            if (!createdWindow.TryGetComponent(out T windowComponent)) continue;
-
-            var createdWindowName = createdWindow.name;
-            //createdWindowName = createdWindowName.Replace("(Clone)", "");
-
+            if (!initWindow.TryGetComponent(out T windowComponent)) continue;
+            var createdWindowName = initWindow.name;
+            createdWindowName = createdWindowName.Replace("(Clone)", "");
             if (createdWindowName == windowName)
             {
                 targetWindow = windowComponent;
+                break;
+            }
+        }
+
+        return targetWindow;
+    }
+    
+    public T SearchCreatedWindow<T>(string windowName) where T : WindowController
+    {
+        T targetWindow = null;
+        _createdWindows ??= new List<WindowController>();
+        foreach (var createdWindow in _createdWindows)
+        {
+            var createdWindowName = createdWindow.name;
+            createdWindowName = createdWindowName.Replace("(Clone)", "");
+            if (createdWindowName == windowName)
+            {
+                targetWindow = (T)createdWindow;
                 break;
             }
         }
