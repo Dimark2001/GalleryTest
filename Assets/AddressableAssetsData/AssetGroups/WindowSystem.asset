@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WindowSystem
+  m_EditorClassIdentifier: 
+  m_GroupName: WindowSystem
+  m_Data:
+    m_SerializedData: []
+  m_GUID: da640415ff8a9014b8779534bbe97b8f
+  m_SerializeEntries:
+  - m_GUID: 2710c1e64cab4af41bb3564d5e01b3a4
+    m_Address: Assets/Game/UI/Windows/GalleryWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 524723e32500343428f8d129c6c17e9f
+    m_Address: Assets/Game/UI/Windows/MenuWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8522da3395447f744acf8231176c8969
+    m_Address: Assets/Game/UI/Windows/PhotoViewerWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 9e8974ffb1b7e934f8afcd59040e4868, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7d90b923ff7d8c14da0344f2a1c3748b, type: 2}
+    - {fileID: 11400000, guid: 8281578df4a5da442acfed6913c8366d, type: 2}
