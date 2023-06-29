@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/HumanoidTest.unity
+    guid: 5b1ac2bfb225b7f409f34bfbb438dfe7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 7b2f0f7a418371b4896e211f35e66876, type: 2}

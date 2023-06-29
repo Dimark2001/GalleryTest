@@ -99,7 +99,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -291,15 +291,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
-  m_ChildAlignment: 0
+    m_Left: 46
+    m_Right: 46
+    m_Top: 46
+    m_Bottom: 46
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 400, y: 400}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 460, y: 460}
+  m_Spacing: {x: 46, y: 46}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &804754706176673869
@@ -479,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 6417960977803474417}
   buttonPrefab: {fileID: 4945842117588321808, guid: 7cc1cd35f7f3e5c428a0fbf02a4f302e, type: 3}
+  scrollbar: {fileID: 5703521548721185517}
 --- !u!225 &2367991453668276022
 CanvasGroup:
   m_ObjectHideFlags: 0
